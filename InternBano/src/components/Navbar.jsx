@@ -2,15 +2,18 @@ import React from 'react'
 import { assets } from '../assets/assets.js'
 import { useClerk, UserButton, useUser } from '@clerk/clerk-react'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 
 function Navbar() {
     const {openSignIn, openSignUp} = useClerk();
     const {user} = useUser();
+    const navigate=useNavigate();
+    
     return (
         <div className='w-full h-16 bg-blue-600/20 flex items-center justify-center text-black font-bold text-xl'>
             <div className='ml-8'>
-                <img src={assets.logo} alt="InterBano" />
+                <img onClick={()=>navigate('/')} className='cursor-pointer' src={assets.logo} alt="InterBano" />
             </div>
             <div className='ml-auto flex gap-8 mr-8'>
                 {
