@@ -14,19 +14,19 @@ function Navbar() {
             </div>
             <div className='ml-auto flex gap-8 mr-8'>
                 {
-                    user?<>
-                        <Link to={'application'}>Applied Jobs</Link>
-                        <p>|</p>
-                        {/* <p>Hi, {user.firstName+" "+user.lastName} </p> */}
+                    user?<div className='flex items-center gap-3'>
+                        <Link className='' to={'application'}>Applied Jobs</Link>
+                        <p className='hidden md:block'>|</p>
+                        <p className='hidden md:block'>Hi, {user.firstName+" "+user.lastName} </p>
                         <UserButton afterSignOutUrl='/' />
-                    </>:<>
+                    </div>:<div className='flex gap-4 max-sm:text-xs'>
                         <div>
                         <button className='text-gray-600 px-6 sm:px-9 py-2 '>recruiters login</button>
                         </div>
                         <div>
                             <button onClick={(e)=>openSignIn()} className='bg-blue-500 text-gray-200 rounded-full px-6 sm:px-9 py-2  '>sign up</button>
                         </div>
-                    </>
+                    </div>
                 }
             </div>
         </div>
