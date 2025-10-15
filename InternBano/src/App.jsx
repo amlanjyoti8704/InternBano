@@ -10,6 +10,7 @@ import Dashboard from './pages/dashboard.jsx'
 import AddJobs from './pages/addJobs.jsx'
 import ManageJobs from './pages/manageJobs.jsx'
 import ViewApplications from './pages/viewApplications.jsx'
+import 'quill/dist/quill.snow.css'
 
 function App() {
 
