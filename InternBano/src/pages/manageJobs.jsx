@@ -8,6 +8,7 @@ import { AppContext } from '../context/appContext'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { useEffect } from 'react'
+import Loading from '../components/loading'
 
 function ManageJobs() {
     const navigate=useNavigate()
@@ -31,13 +32,35 @@ function ManageJobs() {
         }
     }
 
+    // function to change the job visibility
+    const changeJobVisibility=async(id)=>{
+        try {
+            const {data}=await axios.post(backendUrl+'/api/company/change-visibility',
+                {id},
+                {headers:{token:companyToken}}
+            )
+            if(data.success){
+                toast.success(data.message)
+                fetchCompanyJobs()
+            }else{
+                toast.error(data.message)
+            }
+        } catch (error) {
+            toast.error(error.message)
+        }
+    }
+
     useEffect(()=>{
         if(companyToken){
             fetchCompanyJobs()
         }
     },[companyToken])
 
-    return (
+    return jobs ? jobs.length===0 ? ( 
+        <div className='flex items-center justify-center h-[70vh]'>
+            <p className='text-xl sm:text-2xl'>No Jobs Available or posted</p>
+        </div>
+     ) : (
         <div className='container p-4 max-w-5xl'>
             <div className='overflow-x-auto'>
                 <table className='min-w-full bg-white border border-gray-200 max-sm:text-sm'>
@@ -53,7 +76,7 @@ function ManageJobs() {
                     </thead>
                     <tbody>
                         {
-                            manageJobsData.map((job, index)=>(
+                            jobs.map((job, index)=>(
                                 <tr key={index} className='text-gray-700'>
                                     <td className='py-2 px-4 border-b max-sm:hidden'>{index+1}</td>
                                     <td className='py-2 px-4 border-b'>{job.title}</td>
@@ -61,7 +84,7 @@ function ManageJobs() {
                                     <td className='py-2 px-4 border-b max-sm:hidden'>{job.location}</td>
                                     <td className='py-2 px-4 border-b text-center'>{job.applicants}</td>
                                     <td className='py-2 px-4 border-b'>
-                                        <input className='scale-125 ml-4' type="checkbox" />
+                                        <input onChange={()=>changeJobVisibility(job._id)} className='scale-125 ml-4' type="checkbox" checked={job.visible} />
                                     </td>
                                 </tr>
                             ))
@@ -73,7 +96,7 @@ function ManageJobs() {
                 <button onClick={()=>navigate('/dashboard/add-jobs')} className='bg-black text-white py-2 px-4 rounded'>Add new Job</button>
             </div>
         </div>
-    )
+    ) : <Loading/>
 }
 
 export default ManageJobs

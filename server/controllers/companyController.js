@@ -4,6 +4,7 @@ import {v2 as cloudinary} from 'cloudinary'
 import generateToken from "../utils/genearteToken.js"
 import Job from "../models/Job.js"
 import { messageInRaw } from "svix"
+import JobApplication from "../models/JobApplication.js"
 
 // register a new company
 export const registerCompany=async(req,res)=>{
@@ -120,7 +121,25 @@ export const  postJob=async(req, res)=>{
 
 // get company job applicants
 export const getCompanyJobApplicants=async(req, res)=>{
+    try {
+        const companyId=req.company._id
 
+        // find job applications for the userand populate related data
+        const applications=await JobApplication.find({companyId})
+        .populate('userId', 'name image resume')
+        .populate('jobId', 'title location category level salary')
+        .exec()
+
+        return res.json({
+            success:true,
+            applications
+        })
+    } catch (error) {
+        res.json({
+            success:false,
+            message:error.message
+        })
+    }
 }
 
 // get company posted jobs
@@ -129,9 +148,15 @@ export const getCompanyPostedJobs=async(req, res)=>{
         const companyId=req.company._id
         const jobs=await Job.find({companyId})
 
+        // adding no of applicants info in the data
+        const jobsData=await Promise.all(jobs.map(async(job)=>{
+            const applicants=await JobApplication.find({jobId:job._id})
+            return {...job.toObject(), applicants:applicants.length}
+        }))
+
         res.json({
             success:true,
-            jobsData: jobs
+            jobsData
         })
     } catch (error) {
         res.json({
@@ -144,6 +169,22 @@ export const getCompanyPostedJobs=async(req, res)=>{
 // Chnage job application status
 export const ChangeJobApplicationsStatus=async(req, res)=>{
 
+    try {
+       const {id, status}=req.body
+        // find job application data and update status
+        await JobApplication.findOneAndUpdate({_id: id}, {status})
+        res.json({
+            success:true,
+            message:'Status Changed'
+        }) 
+
+    } catch (error) {
+        res.json({
+            success:false,
+            message:error.message
+        })
+    }
+    
 }
 
 // change job visibility

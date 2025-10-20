@@ -30,7 +30,7 @@ function Navbar() {
                         <button onClick={e=>setShowRecruiterLogin(true)} className='text-gray-600 px-6 sm:px-9 py-2 '>recruiters login</button>
                         </div>
                         <div>
-                            <button onClick={(e)=>openSignIn()} className='bg-blue-500 text-gray-200 rounded-full px-6 sm:px-9 py-2  '>sign up</button>
+                            <button onClick={(e)=>openSignIn()} className='bg-blue-500 text-gray-200 rounded-full px-6 sm:px-9 py-2  '>sign in</button>
                         </div>
                     </div>
                 }

@@ -3,13 +3,26 @@ import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import { assets } from '../assets/assets'
 import { useContext } from 'react';
 import { AppContext } from '../context/appContext';
+import { useEffect } from 'react';
 
 
 
 function Dashboard() {
     const navigate=useNavigate();
 
-    const {companyData}=useContext(AppContext)
+    const {companyData, setCompanyData, setCompanyToken}=useContext(AppContext)
+    // function to log out for company
+    const logout=()=>{
+        setCompanyToken(null)
+        localStorage.removeItem('companyToken')
+        setCompanyData(null)
+        navigate('/')
+    }
+    useEffect(()=>{
+        if(companyData && window.location.pathname==='/dashboard'){
+            navigate('/dashboard/manage-jobs')
+        }
+    },[companyData, navigate])
     return (
         <div className='min-h-screen'>
             {/* Navbar for recruiter panel */}
@@ -23,7 +36,7 @@ function Dashboard() {
                                 <img className='w-8 border rounded-full' src={companyData.image} alt="" />
                                 <div className='absolute hidden group-hover:block top-0 right-0 z-10 text-blackrounded pt-12'>
                                     <ul className='list-none m-0 p-2 bg-white rounded-md border text-sm'>
-                                        <li className='py-1 px-2 cursor-pointer pr-10'>Logout</li>
+                                        <li onClick={logout} className='py-1 px-2 cursor-pointer pr-10'>Logout</li>
                                     </ul>
                                 </div>
                             </div>
@@ -53,7 +66,7 @@ function Dashboard() {
                         </NavLink>
                     </ul>
                 </div>
-                <div>
+                <div className='flex-1 h-full p-2 sm:p-5'>
                     <Outlet/>
                 </div>
             </div>
