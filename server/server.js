@@ -11,7 +11,6 @@ import jobRoutes from './routes/jobRoutes.js'
 import userRoutes from './routes/userRoutes.js'
 import {clerkMiddleware} from '@clerk/express'
 
-
 // Initialise express
 const app=express()
 
@@ -22,7 +21,9 @@ await connectCloudinary()
 // middleware
 app.use(cors())
 app.use(express.json())
-app.use(clerkMiddleware())
+app.use(clerkMiddleware({
+  secretKey: process.env.CLERK_SECRET_KEY,
+}));
 
 // routes
 app.get('/',(req,res)=> res.send('API Working'))
