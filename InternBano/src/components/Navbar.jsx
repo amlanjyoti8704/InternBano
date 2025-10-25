@@ -22,6 +22,8 @@ function Navbar() {
                 {
                     user?<div className='flex items-center gap-3'>
                         <Link className='' to={'/applications'}>Applied Jobs</Link>
+                        {/* <p className='hidden md:block'>|</p>
+                        <Link className='' to={'/jobs'}>Jobs</Link> */}
                         <p className='hidden md:block'>|</p>
                         <p className='hidden md:block'>Hi, {user.firstName+" "+user.lastName} </p>
                         <UserButton afterSignOutUrl='/' />

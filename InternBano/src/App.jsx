@@ -12,6 +12,7 @@ import ManageJobs from './pages/manageJobs.jsx'
 import ViewApplications from './pages/viewApplications.jsx'
 import 'quill/dist/quill.snow.css'
 import { ToastContainer, toast } from 'react-toastify';
+// import Jobs from './pages/jobs.jsx' // ✅ add this if you created it
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/applications' element={<Applications />} />
         <Route path='/applyJobs/:id' element={<ApplyJobs />} />
+        {/* <Route path='/jobs' element={<Jobs />} /> */}
         <Route path='/dashboard' element={<Dashboard />}>
           {companyToken
             ?<>
