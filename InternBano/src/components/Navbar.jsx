@@ -16,7 +16,7 @@ function Navbar() {
     const {setShowRecruiterLogin}=useContext(AppContext);
     
     return (
-        <div className='w-full h-16 bg-blue-600/20 dark:bg-gradient-to-r dark:from-slate-950 dark:to-[#383a49d6] flex items-center justify-center text-black font-bold text-xl shadow-xl dark:shadow-black'>
+        <div className='fixed z-50 top-0 w-full h-16 bg-blue-200/90 dark:bg-gradient-to-r dark:from-slate-950 dark:to-[#383a49d6] flex items-center justify-center text-black font-bold text-xl shadow-xl dark:shadow-black'>
             <div className='ml-8'>
                 <img onClick={()=>navigate('/')} className='cursor-pointer md:h-9 sm:h-7 h-6 w-auto object-contain drop-shadow-2xl' src={theme==='light'?assets.rozgarW_logo:assets.rozgarB_logo} alt="RozgarBano" />
             </div>
