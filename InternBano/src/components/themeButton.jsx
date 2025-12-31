@@ -12,7 +12,7 @@ function ThemeButton() {
   return (
     <button
       onClick={toggleTheme}
-      className="m-2 text-center align-middle text-[15px] h-7 w-20 rounded-full dark:bg-gray-200 bg-gray-600/50
+      className="my-2 text-center align-middle text-[15px] h-7 w-20 rounded-full dark:bg-gray-200 bg-gray-600/50
                  hover:scale-105 transition flex justify-center items-center "
     >
       <div className="h-6 w-19 dark:bg-gray-600/50 bg-gray-200 rounded-full">

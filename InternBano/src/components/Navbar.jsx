@@ -24,19 +24,19 @@ function Navbar() {
                 {
                     user?<div className='flex items-center gap-3'>
                         <ThemeButton/>
-                        <Link className='' to={'/applications'}>Applied Jobs</Link>
+                        <Link className='dark:text-slate-300' to={'/applications'}>Applied Jobs</Link>
                         {/* <p className='hidden md:block'>|</p>
                         <Link className='' to={'/jobs'}>Jobs</Link> */}
-                        <p className='hidden md:block'>|</p>
-                        <p className='hidden md:block'>Hi, {user.firstName+" "+user.lastName} </p>
+                        <p className='hidden md:block dark:text-slate-300'>|</p>
+                        <p className='hidden md:block dark:text-slate-100'>Hi, {user.firstName+" "+user.lastName} </p>
                         <UserButton afterSignOutUrl='/' />
                     </div>:<div className='flex gap-4 max-sm:text-xs'>
                         <ThemeButton/>
                         <div>
-                            <button onClick={e=>setShowRecruiterLogin(true)} className='text-gray-600 dark:text-gray-200 px-6 sm:px-9 py-2 '>recruiters login</button>
+                            <button onClick={e=>setShowRecruiterLogin(true)} className='text-gray-600 dark:text-gray-200 px-6 sm:px-8 py-2 '>recruiters login</button>
                         </div>
                         <div>
-                            <button onClick={(e)=>openSignIn()} className='bg-blue-600 text-gray-200 rounded-full px-6 sm:px-9 py-2  '>sign in</button>
+                            <button onClick={(e)=>openSignIn()} className='bg-blue-500 dark:bg-blue-500  border-2 border-blue-500 dark:border-blue-800 text-gray-200 rounded-full px-5 sm:px-7 py-2  '>sign in</button>
                         </div>
                     </div>
                 }
