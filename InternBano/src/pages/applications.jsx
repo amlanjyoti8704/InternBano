@@ -52,7 +52,7 @@ function Applications() {
     return (
         <>
             <Navbar />
-            <div className='container px-4 min-h-[65vh] 2xl:px-20 mx-auto my-10'>
+            <div className='mt-[6%] container px-4 min-h-[100vh] 2xl:px-20 mx-auto my-10'>
                 <h2 className='text-xl font-semibold'>Your Resume</h2>
                 <div className='flex gap-2 mb-6 mt-3'>
                     {
@@ -72,7 +72,7 @@ function Applications() {
                     }
                 </div>
                 <h2 className='text-xl font-semibold mb-4'>Jobs Applied</h2>
-                <table className='min-w-full bg-white border rounded-lg'>
+                <table className='min-w-full bg-white dark:bg-transparent border rounded-lg'>
                     <thead>
                         <tr>
                             <th className='py-3 px-4 border-b text-left'>Company</th>

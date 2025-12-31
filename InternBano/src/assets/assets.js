@@ -36,6 +36,15 @@ import amazon_logo from './amazon_logo.png'
 import rozgarB_logo from './rozgarB.svg'
 import rozgarW_logo from './rozgarW.svg'
 
+export const companylogo=[
+    microsoft_logo,
+    walmart_logo,
+    accenture_logo,
+    samsung_logo,
+    adobe_logo,
+    amazon_logo
+]
+
 export const assets = {
     rozgarW_logo,
     rozgarB_logo,
@@ -46,9 +55,7 @@ export const assets = {
     company_icon,
     resume_not_selected,
     resume_selected,
-    microsoft_logo,
-    walmart_logo,
-    accenture_logo,
+    
     app_main_img,
     play_store,
     app_store,
@@ -70,10 +77,7 @@ export const assets = {
     delete_icon,
     profile_upload_icon,
     email_icon,
-    lock_icon,
-    samsung_logo,
-    adobe_logo,
-    amazon_logo
+    lock_icon
 }
 
 export const JobCategories = [
