@@ -33,8 +33,12 @@ import lock_icon from './lock_icon.svg'
 import samsung_logo from './samsung_logo.png'
 import adobe_logo from './adobe_logo.png'
 import amazon_logo from './amazon_logo.png'
+import rozgarB_logo from './rozgarB.svg'
+import rozgarW_logo from './rozgarW.svg'
 
 export const assets = {
+    rozgarW_logo,
+    rozgarB_logo,
     logo,
     search_icon,
     cross_icon,

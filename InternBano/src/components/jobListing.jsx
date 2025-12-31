@@ -37,7 +37,7 @@ function JobListing() {
     return (
         <div className='container 2xl:px-20 my-10 mx-auto p-5 flex gap-10 max-sm:flex-col max-sm:items-center'>
             {/* side bar */}
-            <div className='lg:w-1/4 w-full p-5 bg-white px-4 rounded shadow-md h-fit'>
+            <div className='lg:w-1/4 w-full p-5 bg-white dark:bg-gradient-to-br dark:from-gray-950 dark:to-gray-800 px-4 rounded shadow-md h-fit'>
                 {/* search filter from hero component */}
                 {isSearched && (searchFilter.title!=="" || searchFilter.location!=="") && (
                     
@@ -99,7 +99,7 @@ function JobListing() {
 
             </div>
             {/* Job listings */}
-            <section className='w-full lg:w-3/4 p-5 bg-white rounded shadow-md h-fit'>
+            <section className='w-full lg:w-3/4 p-5 bg-white dark:bg-gradient-to-br dark:from-gray-950 dark:to-gray-800 rounded shadow-md h-fit'>
                 <h3 className='font-medium text-3xl py-2' id='job-list'>Latest Jobs</h3>
                 <p></p>
                 <div className='grid grid-cols-2 xl:grid-cols-3 gap-4 max-sm:grid-cols-1'>
