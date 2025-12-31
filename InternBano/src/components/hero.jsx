@@ -21,7 +21,7 @@ function Hero() {
 
     return (
         <div className='container 2xl:px-20 my-10 mx-auto p-5'>
-            <div className='bg-gradient-to-r from-blue-400 to-blue-200 dark:bg-gradient-to-tr dark:from-[#1E3A8A] dark:to-[blue-300] p-5 rounded flex flex-col gap-5 max-sm:flex-col max-sm:items-center'>
+            <div className='bg-gradient-to-r from-blue-400 to-blue-200 dark:bg-gradient-to-tr dark:from-gray-950 dark:to-[blue-300] p-5 rounded flex flex-col gap-5 max-sm:flex-col max-sm:items-center'>
                 <h2 className='text-3xl text-center'>Over 10,000+ Jobs to apply</h2>
                 <p></p>
                 <div className='bg-white text-gray-600 max-w-xl pl-4 mx-4 sm:mx-auto rounded flex gap-3 items-center justify-between max-sm:flex-col max-sm:items-center w-full'>
@@ -37,7 +37,7 @@ function Hero() {
                 </div>
             </div>
 
-            <div className='my-10 border border-gray-300 dark:border-0 bg-gray-200 dark:bg-gradient-to-b dark:from-[#0d1b41] to-[] shadow-md flex flex-col items-center  gap-5 max-sm:items-center'>
+            <div className='my-10 border border-gray-300 dark:border-0 bg-gray-200 dark:bg-gradient-to-r dark:from-gray-700 dark:via-gray-950 dark:to-gray-600 shadow-md dark:shadow-black flex flex-col items-center  gap-5 max-sm:items-center'>
                 <h2 className='text-2xl dark:text-slate-200 pt-4'>Top Companies</h2>
                 <div className='flex gap-10 max-sm:gap-5 flex-wrap justify-center items-center p-5'>
                     <img className='h-3 sm:h-6' src={assets.accenture_logo} alt="meta" />
