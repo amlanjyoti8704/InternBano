@@ -35,13 +35,13 @@ function JobListing() {
     },[jobs, selectedCategories, selectedLocation, searchFilter]);
 
     return (
-        <div className='container 2xl:px-20 my-10 mx-auto p-5 flex gap-10 max-sm:flex-col max-sm:items-center'>
+        <div className='container 2xl:px-20 my-10 mx-auto p-5 flex gap-10 max-lg:flex-col max-lg:items-center'>
             {/* side bar */}
-            <div className='lg:w-1/4 w-full p-5 bg-white dark:bg-gradient-to-br dark:from-gray-950 dark:to-gray-800 px-4 rounded shadow-md h-fit'>
+            <div className='lg:w-1/4 w-1/4 max-lg:w-full p-5 bg-white dark:bg-gradient-to-br dark:from-gray-950 dark:to-gray-800 px-4 rounded shadow-md h-fit max-lg:flex max-lg:flex-col'>
                 {/* search filter from hero component */}
                 {isSearched && (searchFilter.title!=="" || searchFilter.location!=="") && (
                     
-                        <div className='mb-4 text-gray-600'>
+                        <div className='mb-4 text-gray-600 max-lg:flex max-lg:flex-col max-lg:items-center'>
                             <h3 className='font-medium text-lg mb-4'>Current Search</h3>
                             {searchFilter.title && (
                                 <span className='inline-flex gap-2.5 items-center bg-blue-50 border border-blue-200 text-blue-600 px-3 py-1 rounded-md mr-2'>
@@ -50,7 +50,7 @@ function JobListing() {
                                 </span>
                             )}
                             {searchFilter.location && (
-                                <span className='ml-1 inline-flex gap-2.5 items-center bg-red-50 border border-red-200 text-red-600 px-3 py-1 rounded-md mr-2'>
+                                <span className='lg:ml-1 max-lg:mt-1 inline-flex gap-2.5 items-center bg-red-50 border border-red-200 text-red-600 px-3 py-1 rounded-md mr-2'>
                                     {searchFilter.location}
                                     <img onClick={e=>setSearchFilter(prev=>({...prev, location:""}))} className='cursor-pointer' src={assets.cross_icon} alt="" />
                                 </span>
@@ -58,11 +58,14 @@ function JobListing() {
                         </div>
                     
                 )}
-                <button onClick={e=> setShowFilter(prev=>!prev)} className='px-6 py-1.5 rounded border border-gray-400 md:hidden'>
+                <div className='flex justify-center items-center'>
+                    <button onClick={e=> setShowFilter(prev=>!prev)} className='px-6 py-1.5 max-lg:h-10 rounded border border-gray-400 xl:hidden'>
                     {showFilter? "Close": "Filters"}
-                </button>
+                    </button>
+                </div>
+                <div className='flex lg:flex-col justify-evenly items-center'>
                 {/* category filter */}
-                <div className={showFilter?'mt-5':'max-md:hidden'}>
+                <div className={showFilter?'mt-5 max-lg:pt-6 max-lg:pr-6':'max-lg:hidden'}>
                     <h4 className='font-medium text-lg py-4'>Search by Category</h4>
                     <ul className='space-y-4 text-gray-600'>
                         {
@@ -80,7 +83,7 @@ function JobListing() {
                 </div>
 
                 {/* location filter */}
-                <div className={showFilter?'mt-5 pt-6':'max-md:hidden'}>
+                <div className={showFilter?'mt-5 pt-6 max-lg:pr-3':'max-lg:hidden'}>
                     <h4 className='font-medium text-lg py-4'>Search by Location</h4>
                     <ul className='space-y-4 text-gray-600'>
                         {
@@ -96,13 +99,13 @@ function JobListing() {
                         }
                     </ul>
                 </div>
-
+                </div>
             </div>
             {/* Job listings */}
             <section className='w-full lg:w-3/4 p-5 bg-white dark:bg-gradient-to-br dark:from-gray-950 dark:to-gray-800 rounded shadow-md h-fit'>
                 <h3 className='font-medium text-3xl py-2' id='job-list'>Latest Jobs</h3>
                 <p></p>
-                <div className='grid grid-cols-2 xl:grid-cols-3 gap-4 max-sm:grid-cols-1'>
+                <div className='flex flex-col lg:grid lg:grid-cols-2 xl:grid-cols-3 gap-4 max-sm:grid-cols-1'>
                         {filteredJobs.slice((currentPage-1)*6, currentPage*6).map((job,index)=>(
                             <JobCard key={index} job={job}/>
                         ))}
@@ -117,7 +120,7 @@ function JobListing() {
                         {
                             Array.from({length:Math.ceil(filteredJobs.length/6)}).map((_,index)=>(
                                 <a key={index} href="#job-list">
-                                    <button onClick={()=> setCurrentPage(index+1)} className={`w-10 h-10 flex items-center justify-center border border-gray-300 rounded ${currentPage===index+1?'bg-blue-100 text-blue-500':'text-gray-500'}`}>{index+1}</button>
+                                    <button onClick={()=> setCurrentPage(index+1)} className={`w-10 h-10 flex items-center justify-center border border-gray-300 rounded ${currentPage===index+1?'bg-blue-100 dark:bg-slate-800 text-blue-500 dark:text-blue-200':'text-gray-500'}`}>{index+1}</button>
                                 </a>
                             ))
                         }

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 function JobCard({job}) {
     const navigate=useNavigate();
     return (
-        <div className='p-6 shadow-md dark:shadow-xl dark:shadow-slate-600 rounded'>
+        <div className='p-6 shadow-md dark:shadow-md bg-white dark:bg-gray-900 dark:shadow-slate-600 rounded'>
             <div className='flex justify-between items-center'>
                 <img className='h-8 rounded-full' src={job.companyId.image} alt="" />
             </div>
