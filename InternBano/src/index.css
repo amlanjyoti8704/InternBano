@@ -128,8 +128,13 @@ Global font
    Dark Mode Overrides
    =========================== */
 
-.dark .rich-text {
+/* .dark .rich-text {
   color: #d1d5db;
+} */
+
+.dark .rich-text,
+.dark .rich-text * {
+  color: #d1d5db !important;
 }
 
 .dark .rich-text h1,
