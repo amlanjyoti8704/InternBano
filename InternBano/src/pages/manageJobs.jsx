@@ -63,7 +63,7 @@ function ManageJobs() {
      ) : (
         <div className='container p-4 max-w-5xl'>
             <div className='overflow-x-auto'>
-                <table className='min-w-full bg-white border border-gray-200 max-sm:text-sm'>
+                <table className='min-w-full bg-white dark:bg-transparent border border-gray-200 max-sm:text-sm'>
                     <thead>
                         <tr>
                             <th className='py-2 px-4 border-b text-left max-sm:hidden'>#</th>
@@ -77,7 +77,7 @@ function ManageJobs() {
                     <tbody>
                         {
                             jobs.map((job, index)=>(
-                                <tr key={index} className='text-gray-700'>
+                                <tr key={index} className='text-gray-700 dark:text-gray-300'>
                                     <td className='py-2 px-4 border-b max-sm:hidden'>{index+1}</td>
                                     <td className='py-2 px-4 border-b'>{job.title}</td>
                                     <td className='py-2 px-4 border-b max-sm:hidden'>{moment(job.date).format('ll')}</td>

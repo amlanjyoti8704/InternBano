@@ -80,14 +80,14 @@ function ApplyJobs() {
     return JobData?(
         <>
             <Navbar/>
-            <div className='min-h-screen flex flex-col py-10 container px-4 2xl:px-20 mx-auto'>
-                <div className='bg-white text-black rounded-lg w-full'>
-                    <div className='flex justify-center md:justify-between flex-wrap gap-8 px-14 py-20 mb-6 bg-sky-50 border border-sky-400 rounded-xl'>
+            <div className='mt-20 min-h-screen flex flex-col py-10 container px-4 2xl:px-20 mx-auto'>
+                <div className='bg-white dark:bg-gradient-to-br dark:from-gray-950 dark:via-slate-800 dark:to-gray-900 text-black dark:text-white rounded-lg w-full flex flex-col items-center'>
+                    <div className='flex justify-center md:justify-between flex-wrap gap-8 px-14 py-20 mb-6 bg-sky-50 dark:bg-gradient-to-tl dark:from-gray-950 dark:via-slate-800 dark:to-gray-950/95 border border-sky-400 dark:border-gray-900 rounded-xl w-[90%] mt-[5%]'>
                         <div className='flex flex-col md:flex-row items-center'>
                             <img className='h-24 bg-white rounded-lg p-4 mr-4 max-md:mb-4 border' src={JobData.companyId.image} alt="" />
-                            <div className='text-center md:text-left text-neutral-700'>
+                            <div className='text-center md:text-left text-neutral-700 dark:text-neutral-300'>
                                 <h1 className='text-2xl sm:text-4xl font-medium'>{JobData.title}</h1>
-                                <div className='flex flex-row flex-wrap max-md:justify-center gap-y-2 gap-6 items-center text-gray-600 mt-2'>
+                                <div className='flex flex-row flex-wrap max-md:justify-center gap-y-2 gap-6 items-center text-gray-600 dark:text-neutral-500 mt-2'>
                                     <span className='flex items-center gap-1'>
                                         <img src={assets.suitcase_icon} alt="" />
                                         {JobData.companyId.name}
@@ -107,12 +107,14 @@ function ApplyJobs() {
                                 </div>
                             </div>
                         </div>
-                        <div className='flex flex-col justify-center text-end text-sm max-md:mx-auto max-md:text-center'>
+                        <div className='flex flex-col justify-center items-center text-end text-sm max-md:mx-auto max-md:text-center'>
                             <button onClick={applyHandler} className='bg-blue-600 p-2.5 px-10 text-white rounded'>{isAlreadyApplied?'Already Applied':'Apply Now'}</button>
-                            <p className='mt-1 text-gray-600'>Posted {moment(JobData.date).fromNow()}</p>
+                            <p className='mt-1 text-gray-600 dark:text-neutral-500'>Posted {moment(JobData.date).fromNow()}</p>
                         </div>
                     </div>
-                    <div className='flex flex-col lg:flex-row justify-between items-start'>
+
+                    <div className='flex flex-col lg:flex-row justify-between items-start m-[5%]'>
+                        {/* description */}
                         <div className='w-full lg:w-2/3'>
                             <h2 className='font-bold text-2xl mb-4'>Job Description</h2>
                             <div className='rich-text' dangerouslySetInnerHTML={{__html:JobData.description}}></div>
