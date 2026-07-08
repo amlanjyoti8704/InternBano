@@ -22,12 +22,16 @@ function Navbar() {
                 {
                     user?<div className='flex items-center gap-3'>
                         <Link className='' to={'/applications'}>Applied Jobs</Link>
+                        <p className='hidden md:block'>|</p>
+                        <Link className='' to={'/mock-interview'}>Mock AI Interview</Link>
                         {/* <p className='hidden md:block'>|</p>
                         <Link className='' to={'/jobs'}>Jobs</Link> */}
                         <p className='hidden md:block'>|</p>
                         <p className='hidden md:block'>Hi, {user.firstName+" "+user.lastName} </p>
                         <UserButton afterSignOutUrl='/' />
-                    </div>:<div className='flex gap-4 max-sm:text-xs'>
+                    </div>:<div className='flex gap-4 items-center max-sm:text-xs'>
+                        <Link className='text-gray-600 hover:text-black font-semibold text-base sm:text-lg transition-colors' to={'/mock-interview'}>Mock AI Interview</Link>
+                        <p className='hidden md:block text-gray-400'>|</p>
                         <div>
                         <button onClick={e=>setShowRecruiterLogin(true)} className='text-gray-600 px-6 sm:px-9 py-2 '>recruiters login</button>
                         </div>
