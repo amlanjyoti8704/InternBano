@@ -4,7 +4,7 @@ import Footer from '../components/footer'
 
 function MockInterview() {
     return (
-        <div className="bg-slate-50 min-h-screen flex flex-col justify-between">
+        <div className="pt-16 bg-slate-50 min-h-screen flex flex-col justify-between">
             <div>
                 <Navbar />
                 

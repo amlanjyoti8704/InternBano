@@ -7,7 +7,7 @@ export default defineConfig({
   darkMode: 'class',
   content: ['./index.html', './src/**/*.{js,jsx}'],
   theme: {
-    extend: {},
+  extend: {},
   },
   plugins: [tailwindcss(),
     react()],
