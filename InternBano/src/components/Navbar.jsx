@@ -23,9 +23,9 @@ function Navbar() {
             <div className='ml-auto flex gap-8 mr-8'>
                 {
                     user?<div className='flex items-center gap-3'>
-                        <Link className='' to={'/applications'}>Applied Jobs</Link>
-                        <p className='hidden md:block'>|</p>
-                        <Link className='' to={'/mock-interview'}>Mock AI Interview</Link>
+                        <Link className='dark:text-slate-300' to={'/applications'}>Applied Jobs</Link>
+                        <p className='hidden md:block dark:text-slate-300'>|</p>
+                        <Link className='dark:text-slate-300' to={'/mock-interview'}>Mock AI Interview</Link>
                         <ThemeButton/>
                         <Link className='dark:text-slate-300' to={'/applications'}>Applied Jobs</Link>
                         {/* <p className='hidden md:block'>|</p>
@@ -34,11 +34,13 @@ function Navbar() {
                         <p className='hidden md:block dark:text-slate-100'>Hi, {user.firstName+" "+user.lastName} </p>
                         <UserButton afterSignOutUrl='/' />
                     </div>:<div className='flex gap-4 items-center max-sm:text-xs'>
-                        <Link className='text-gray-600 hover:text-black font-semibold text-base sm:text-lg transition-colors' to={'/mock-interview'}>Mock AI Interview</Link>
-                        <p className='hidden md:block text-gray-400'>|</p>
                         <ThemeButton/>
+
+                        <Link className='text-gray-600 dark:text-slate-300 hover:text-black dark:hover:text-slate-100 text-base sm:text-xl transition-colors' to={'/mock-interview'}>Mock AI Interview</Link>
+                        <p className='hidden md:block text-gray-400 dark:text-slate-300'>|</p>
+                        
                         <div>
-                            <button onClick={e=>setShowRecruiterLogin(true)} className='text-gray-600 dark:text-gray-200 px-6 sm:px-8 py-2 '>recruiters login</button>
+                            <button onClick={e=>setShowRecruiterLogin(true)} className='text-gray-600 dark:text-gray-200 pr-6 sm:pr-8 py-2 '>recruiters login</button>
                         </div>
                         <div>
                             <button onClick={(e)=>openSignIn()} className='bg-blue-500 dark:bg-blue-500  border-2 border-blue-500 dark:border-blue-800 text-gray-200 rounded-full px-5 sm:px-7 py-2  '>sign in</button>
